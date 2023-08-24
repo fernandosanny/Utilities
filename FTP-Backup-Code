@@ -1,0 +1,32 @@
+@echo off
+
+REM Set source folder path
+set "source_folder=C:\Path\To\Source\Folder"
+
+REM Set FTP server details
+set "ftp_server=ftp.example.com"
+set "ftp_user=username"
+set "ftp_password=password"
+
+REM Create timestamp variables
+set "timestamp=%date:/=-%_%time::=-%"
+set "timestamp=%timestamp: =%"
+
+REM Set backup folder name with timestamp
+set "backup_folder=Backup_%timestamp%"
+
+REM Generate FTP script file
+echo open %ftp_server% > ftpscript.txt
+echo %ftp_user% >> ftpscript.txt
+echo %ftp_password% >> ftpscript.txt
+echo mkdir "%backup_folder%" >> ftpscript.txt
+echo cd "%backup_folder%" >> ftpscript.txt
+echo mput "%source_folder%\*" >> ftpscript.txt
+echo bye >> ftpscript.txt
+
+REM Execute FTP backup
+ftp -s:ftpscript.txt
+del ftpscript.txt
+
+echo Backup completed.
+pause
