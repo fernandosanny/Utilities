@@ -49,3 +49,13 @@ Get-Service -DisplayName "DNS Server"
 -- restart a service
 Restart-Service 
 Restart-Service -Name DhcpServer
+
+*Hardware Info
+-- Get CPU details
+Get-WmiObject CIM_Processor
+-- Detail system memory
+Get-WmiObject CIM_PhysicalMemory | Select-Object BankLabel, Manufacturer, PartNumber, SerialNumber, Capacity, Speed, ConfiguredClockSpeed, ConfiguredVoltage
+-- Get Plug and Play Devices connected to PC
+Get-PnpDevice -PresentOnly
+-- Motherboard Model
+Get-CimInstance -ClassName Win32_ComputerSystem  
