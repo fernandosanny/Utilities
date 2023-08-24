@@ -32,3 +32,20 @@ Get-NetRoute
 Test-Connection and Test-NetConnection 
 -- test existing connections to server
 Get-NetTCPConnection
+-- confirm name resolution works
+Resolve-DnsName <siteaddress>
+Resolve-DnsName capiz.gov.ph
+-- check DNS client status
+Get-DnsClient 
+-- view and clear DNS cache
+Get-DnsClientCache and Clear-DnsClientCache 
+-- display configured DNS servers
+Get-DnsClientServerAddress 
+-- check service status
+Get-Service 
+Get-Service -Name DhcpServer
+Get-Service -DisplayName "DHCP Server"
+Get-Service -DisplayName "DNS Server"
+-- restart a service
+Restart-Service 
+Restart-Service -Name DhcpServer
