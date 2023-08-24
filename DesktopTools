@@ -17,6 +17,9 @@ irm https://massgrave.dev/get | iex
 iwr -useb https://christitus.com/win | iex
 irm christitus.com/win | iex
 
+* Keys for Activation
+https://gist.github.com/judero01col/4eac6f01f3fe64a48924b229c6427f01
+
 * Powershell Network Tools
 -- view IP address settings
 Get-NetIPAddress
