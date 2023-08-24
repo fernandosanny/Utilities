@@ -22,6 +22,21 @@ irm christitus.com/win | iex
 Get-NetIPAddress
 -- display IP address details
 Get-NetIPConfiguration 
+
+After running the command, note the following information: 
+InterfaceIndex
+IPv4Address
+IPv4DefaultGateway
+DNSServer
+
+-- Set IP Address and Gateway
+New-NetIPAddress -InterfaceIndex <Index> -IPAddress <IP Address> -PrefixLength 24 -DefaultGateway <Gateway Address>
+New-NetIPAddress -InterfaceIndex 5 -IPAddress 10.1.4.220 -PrefixLength 24 -DefaultGateway 10.1.4.1
+--assign a DNS server address
+Set-DnsClientServerAddress -InterfaceIndex <Index> -ServerAddresses <DNS1>, <DNS2>
+Set-DnsClientServerAddress -InterfaceIndex 5 -ServerAddresses 10.1.4.1, 8.8.8.8
+
+
 -- display network interface settings
 Get-NetAdapter 
 -- up and down an interface
