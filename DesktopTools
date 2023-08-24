@@ -1,0 +1,18 @@
+*enable the file and printer sharing service for all network
+netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
+
+*File Sharing
+set-NetFireWallRule -DisplayGroup "File And Printer SHaring" -Enabled True -Profile Any
+
+*Detect SMB1 Protocol
+Get-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
+
+*Enable SMB1 Protocol
+Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
+
+*Windows and Office Activation
+irm https://massgrave.dev/get | iex
+
+*Windows Tweaks and Debloater
+iwr -useb https://christitus.com/win | iex
+irm christitus.com/win | iex
