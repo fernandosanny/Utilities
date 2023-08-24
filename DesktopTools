@@ -16,3 +16,19 @@ irm https://massgrave.dev/get | iex
 *Windows Tweaks and Debloater
 iwr -useb https://christitus.com/win | iex
 irm christitus.com/win | iex
+
+* Powershell Network Tools
+-- view IP address settings
+Get-NetIPAddress
+-- display IP address details
+Get-NetIPConfiguration 
+-- display network interface settings
+Get-NetAdapter 
+-- up and down an interface
+Enable-NetAdapter and Disable-NetAdapter
+-- show the routing table
+Get-NetRoute
+-- test connectivity
+Test-Connection and Test-NetConnection 
+-- test existing connections to server
+Get-NetTCPConnection
