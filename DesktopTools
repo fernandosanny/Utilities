@@ -77,3 +77,8 @@ Get-WmiObject CIM_PhysicalMemory | Select-Object BankLabel, Manufacturer, PartNu
 Get-PnpDevice -PresentOnly
 -- Motherboard Model
 Get-CimInstance -ClassName Win32_ComputerSystem  
+
+* Batch command for Network Config
+netsh interface ip set address name="Wi-Fi" source=static ^ address=10.10.0.15 mask=255.255.255.0 gate=10.10.0.1
+netsh interface ip set dnsservers "Wi-Fi" static 8.8.8.8 validate=no
+netsh interface ipv4 add dnsserver "Wi-Fi" address=8.8.4.4 index=2 validate=no
